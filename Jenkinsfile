@@ -61,7 +61,7 @@ pipeline {
         }   
         
         aborted { 
-            echo 'pipeline was aborted'
+            echo 'Pipeline was aborted'
         }
     }
 }
