@@ -23,6 +23,15 @@ pipeline {
         }
     }
     post { 
+        
+        success {
+            echo 'This will run only if successful'
+        }
+        
+        failure {
+            echo 'This will run only if failed'
+        }   
+        
         always { 
             echo 'I will always say Hello again!'
         }
