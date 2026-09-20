@@ -3,19 +3,20 @@ pipeline {
         label 'AGEN-1'
     }
     environment {
-        APP_NAME = 'myapp'
+        COUSRSE = "myapp"
+    }
+    options {
+        timeout(time: 10, unit: 'SECOND')
     }
     stages {
         stage('Hello') {
             steps {
                 echo 'Hello, Jenkins!'
                 sh '''
-                    echo ${APP_NAME}
-                    echo "Job: $JOB_NAME"
-                    echo "Build Number: $BUILD_NUMBER"
-                    echo "Workspace: $WORKSPACE"
+                    echo $COUSRSE
+                    sleep 5
+                    env
 
-                    docker build -t $APP_NAME:$BUILD_NUMBER
                 '''
             }
         }
@@ -42,8 +43,8 @@ pipeline {
             echo 'This will run only if failed'
         }   
         
-        always { 
-            echo 'I will always say Hello again!'
+        aborted { 
+            echo 'pipeline was aborted'
         }
     }
 }
