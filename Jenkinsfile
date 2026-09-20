@@ -45,13 +45,13 @@ pipeline {
     }
     post { 
         
-        // success {
-        //     echo 'This will run only if successful'
-        // }
+        success {
+            echo 'This will run only if successful'
+        }
         
-        // failure {
-        //     echo 'This will run only if failed'
-        // }   
+        failure {
+            echo 'This will run only if failed'
+        }   
         
         aborted { 
             echo 'pipeline was aborted'
