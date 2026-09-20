@@ -1,25 +1,8 @@
 pipeline {
-    agent {
-        label 'AGEN-1'
-    }
-
     stages {
-        stage('Hello') {
+        stage('Build')
             steps {
-                echo 'Hello, Jenkins!'
+                echo 'hello jayakrishna'
             }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Running build step...'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
-            }
-        }
-    }
+    }   
 }
