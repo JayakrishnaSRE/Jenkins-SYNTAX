@@ -4,12 +4,18 @@ pipeline {
     }
     environment {
         APP_NAME = 'myapp'
+    }
     stages {
         stage('Hello') {
             steps {
                 echo 'Hello, Jenkins!'
                 sh '''
                     echo ${APP_NAME}
+                    echo "Job: $JOB_NAME"
+                    echo "Build Number: $BUILD_NUMBER"
+                    echo "Workspace: $WORKSPACE"
+
+                    docker build -t $APP_NAME:$BUILD_NUMBER
                 '''
             }
         }
