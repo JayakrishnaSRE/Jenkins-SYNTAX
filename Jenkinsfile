@@ -6,7 +6,7 @@ pipeline {
         COUSRSE = "myapp"
     }
     options {
-        timeout(time: 10, unit: 'SECOND')
+        timeout(time: 10, unit: 'MINUTES')
         disableConcurrentBuilds()
     }
 
@@ -17,7 +17,7 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-    
+
     stages {
         stage('Hello') {
             steps {
