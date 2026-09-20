@@ -2,17 +2,21 @@ pipeline {
     agent {
         label 'AGEN-1'
     }
-
+    environment {
+        APP_NAME = 'myapp'
     stages {
         stage('Hello') {
             steps {
                 echo 'Hello, Jenkins!'
+                sh '''
+                    echo ${APP_NAME}
+                '''
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Running build step...''
+                echo 'Running build step...'
             }
         }
 
